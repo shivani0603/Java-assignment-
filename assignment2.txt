@@ -1,0 +1,109 @@
+Accept two numbers from user and an operator (+,-,/,*,%) based on that perform the
+desired operations.
+
+#include <stdio.h>
+int main() {
+    int num1, num2;
+    char op;
+
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+
+    printf("Enter operator (+, -, *, /, %%): ");
+    scanf(" %c", &op);
+
+    switch (op) {
+        case '+':
+            printf("Result: %d\n", num1 + num2);
+            break;
+        case '-':
+            printf("Result: %d\n", num1 - num2);
+            break;
+        case '*':
+            printf("Result: %d\n", num1 * num2);
+            break;
+        case '/':
+            if (num2 != 0)
+                printf("Result: %d\n", num1 / num2);
+            else
+                printf("Division by zero is not allowed.\n");
+            break;
+        case '%':
+            if (num2 != 0)
+                printf("Result: %d\n", num1 % num2);
+            else
+                printf("Modulo by zero is not allowed.\n");
+            break;
+        default:
+            printf("Invalid operator.\n");
+    }
+
+    return 0;
+}
+
+Output:
+	Enter first number: 10
+Enter second number: 20
+Enter operator (+, -, *, /, %): *
+Result: 200
+
+
+Accept three sides of a triangle from the user and determine whether the triangle is
+equilateral, isosceles, or scalene.
+
+#include <stdio.h>
+int main() {
+    float a, b, c;
+    printf("Enter three sides of the triangle: ");
+    scanf("%f %f %f", &a, &b, &c);
+
+    if (a + b > c && a + c > b && b + c > a) {
+        if (a == b && b == c) {
+            printf("The triangle is equilateral.\n");
+        } else if (a == b || b == c || a == c) {
+            printf("The triangle is isosceles.\n");
+        } else {
+            printf("The triangle is scalene.\n");
+        }
+    } else {
+        printf("The given sides do not form a valid triangle.\n");
+    }
+
+    return 0;
+}
+Output:
+	Enter three sides of the triangle: 5 5 8
+The triangle is isosceles.
+
+
+Write a program to find greatest of three numbers using nested if-else.
+
+#include <stdio.h>
+int main() {
+    int a, b, c;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    if (a > b) {
+        if (a > c) {
+            printf("%d is the greatest number.\n", a);
+        } else {
+            printf("%d is the greatest number.\n", c);
+        }
+    } else {
+        if (b > c) {
+            printf("%d is the greatest number.\n", b);
+        } else {
+            printf("%d is the greatest number.\n", c);
+        }
+    }
+
+    return 0;
+}
+ 
+ Output:
+ 	Enter three numbers: 10 20 30
+30 is the greatest number.

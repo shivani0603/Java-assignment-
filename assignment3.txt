@@ -1,0 +1,119 @@
+Print numbes from 1 to 10.
+
+#include <stdio.h>
+int main() {
+    int i;
+    for(i = 1; i <= 10; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}
+
+Output:
+	1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+Check number is prime or not.
+
+#include <stdio.h>
+int main() {
+    int num, i, isPrime = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (num <= 1) {
+        isPrime = 0;
+    } else {
+        for(i = 2; i <= num / 2; i++) {
+            if(num % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+
+    if(isPrime)
+        printf("%d is a prime number.\n", num);
+    else
+        printf("%d is not a prime number.\n", num);
+
+    return 0;
+}
+Output:
+Enter a number: 7
+7 is a prime number.
+
+	
+Check number is perfect or not.
+
+#include <stdio.h>
+
+int main() {
+    int num, i, sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    for(i = 1; i < num; i++) {
+        if(num % i == 0) {
+            sum += i;
+        }
+    }
+
+    if(sum == num)
+        printf("%d is a perfect number.\n", num);
+    else
+        printf("%d is not a perfect number.\n", num);
+
+    return 0;
+}
+Enter a number: 6
+6 is a perfect number.
+
+Check number is strong or not.
+
+#include <stdio.h>
+int factorial(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int num, original, remainder, sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    original = num;
+
+    while (num != 0) {
+        remainder = num % 10;
+        sum += factorial(remainder);
+        num /= 10;
+    }
+
+    if (sum == original)
+        printf("%d is a Strong number.\n", original);
+    else
+        printf("%d is not a Strong number.\n", original);
+
+    return 0;
+}
+Output:
+	Enter a number: 145
+145 is a Strong number.
+
+
