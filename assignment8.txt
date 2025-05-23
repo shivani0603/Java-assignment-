@@ -1,0 +1,120 @@
+Search the given number in array using passing array to function 
+
+#include <stdio.h>
+int search(int arr[], int size, int num) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == num)
+            return i;
+    }
+    return -1;
+}
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int num = 30;
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int result = search(arr, size, num);
+
+    if (result != -1)
+        printf("Number found at index %d\n", result);
+    else
+        printf("Number not found\n");
+
+    return 0;
+}
+
+Output :
+	Number found at index 2
+
+
+Merge two arrays using passing array to function
+
+#include <stdio.h>
+void merge(int arr1[], int size1, int arr2[], int size2, int merged[]) {
+    for (int i = 0; i < size1; i++) {
+        merged[i] = arr1[i];
+    }
+    for (int i = 0; i < size2; i++) {
+        merged[size1 + i] = arr2[i];
+    }
+}
+
+int main() {
+    int arr1[] = {1, 3, 5};
+    int arr2[] = {2, 4, 6};
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+    int merged[size1 + size2];
+
+    merge(arr1, size1, arr2, size2, merged);
+
+    for (int i = 0; i < size1 + size2; i++) {
+        printf("%d ", merged[i]);
+    }
+
+    return 0;
+}
+
+Output:
+	1 3 5 2 4 6
+
+
+Reverse the given array using passing array to function
+
+#include <stdio.h>
+void reverse(int arr[], int size) {
+    for (int i = 0; i < size / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[size - 1 - i];
+        arr[size - 1 - i] = temp;
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    reverse(arr, size);
+
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+
+Output:
+	5 4 3 2 1
+
+
+Sort the array using passing array to function
+
+#include <stdio.h>
+void sort(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 3};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    sort(arr, size);
+
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+
+
+output :
+1 2 3 5 9
